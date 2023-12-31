@@ -1,7 +1,11 @@
 # What does this project do?
 The Open Source Projects Observatory is a platform that centralizes information about open source projects. This system aims to facilitate the discovery, exploration, and contribution to such projects by providing an intuitive interface with the following features:
-- **Project Search**: Find open source projects based on programming language, community size, and other criteria.
-- **Details of a specific project**: Obtain contribution statistics, a list of top contributors, open issues for each project, and other relevant details.
+- **Project Search**: Find open source projects based on search criterias.
+- **Details of a specific project**: Obtain informations and statistics for each project, for example:
+    - Main information about the project.
+     - Project overview.
+     - Project contribution data.
+     - Graphics related to issues, pull requests, languages, contributors and others informations.
 - **Dashboard for open source projects**: Provide a comprehensive dashboard, offering users a consolidated and easily understandable view of useful characteristics across various open source projects.
 > **Important:**
 > Consolidating these key features of the system is still in progress.
@@ -13,7 +17,7 @@ The Open Source Project Observatory offers a number of benefits to the developer
 - **Simple Project Discovery:** One platform centralizes information about a wide variety of open source projects, making it easier for users to discover projects relevant to their interests.
 
 ## 2. Exploration Facility
-- **Comprehensive Project Details:** You can explore specific details for each project, including contribution statistics, top contributors, and open questions, providing a comprehensive view of the project status.
+- **Comprehensive Project Details:** You can explore specific details for each project.
 
 ## 3. Contribution Encouragement and Guide for Beginners
 - **Guides for New Contributors:** Act as a guide for beginners in the open source community, helping them discover the first project to contribute to.
