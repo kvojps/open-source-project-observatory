@@ -1,0 +1,18 @@
+FROM python:3.11
+
+RUN mkdir -p /home/app
+
+RUN groupadd ospo && useradd -g ospo ospo
+
+ENV API_HOME=/home/app/api
+RUN mkdir -p $API_HOME
+WORKDIR $API_HOME
+
+COPY . $API_HOME
+RUN pip install -r requirements-dev.txt
+RUN pip install -e .
+
+RUN chown -R ospo:ospo $API_HOME
+USER ospo
+
+CMD [ "uvicorn", "api.app:app", "--host=0.0.0.0", "--port=8000", "--reload" ]
