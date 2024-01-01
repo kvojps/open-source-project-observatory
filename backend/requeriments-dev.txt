@@ -1,0 +1,5 @@
+pip-tools          # lock de dependencias
+pytest             # execucao de testes
+pytest-order       # ordenacao de execucao de testes
+flake8             # linter
+mypy               # type checking
