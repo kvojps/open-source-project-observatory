@@ -67,6 +67,14 @@ class RepositoryClient:
             closedIssues: issues(states: CLOSED) {{
               totalCount
             }}
+            labels(first:10) {{
+              nodes {{
+                name
+                  issues {{
+                    totalCount
+                  }}
+              }}
+            }}
             pullRequests {{
               totalCount
             }}

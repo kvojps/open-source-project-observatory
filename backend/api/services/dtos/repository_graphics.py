@@ -7,6 +7,11 @@ class IssueGraphicResponse(BaseModel):
     closed_issues: Optional[int]
 
 
+class LabelIssueResponse(BaseModel):
+    name: Optional[str]
+    total: Optional[int]
+
+
 class PullRequestGraphicResponse(BaseModel):
     open_pull_requests: Optional[int]
     closed_pull_requests: Optional[int]
