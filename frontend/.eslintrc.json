@@ -14,6 +14,15 @@
     "plugins": [
         "react"
     ],
-    "rules": {
-    }
+    "rules": {},
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
+    "ignorePatterns": [
+        ".eslintrc.cjs",
+        "vite.config.ts",
+        "vite-env.d.ts"
+    ]
 }
