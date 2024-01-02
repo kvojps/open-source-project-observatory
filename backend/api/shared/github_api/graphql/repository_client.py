@@ -1,3 +1,4 @@
+from fastapi import HTTPException, status
 import requests
 from api.config.dynaconf import settings
 
@@ -83,5 +84,7 @@ class RepositoryClient:
         '''
 
         response = requests.post(url, headers=headers, json={'query': query})
+        if 200 >= response.status_code > 300:
+            raise HTTPException(status_code=status.HTTP_502_BAD_GATEWAY, detail="Github API unavailable")
 
         return response.json()
