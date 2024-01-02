@@ -67,7 +67,7 @@ class RepositoryClient:
             closedIssues: issues(states: CLOSED) {{
               totalCount
             }}
-            labels(first:10) {{
+            labels(first:100) {{
               nodes {{
                 name
                   issues {{

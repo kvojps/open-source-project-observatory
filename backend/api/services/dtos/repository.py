@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 from typing import List, Optional
-from .repository_graphics import IssueGraphicResponse, PullRequestGraphicResponse, LabelIssueResponse
+from .repository_graphics import IssueGraphicResponse, PullRequestGraphicResponse, LabelResponse
 
 
 class RepositoryResponse(BaseModel):
@@ -21,12 +21,14 @@ class RepositoryResponse(BaseModel):
     prs_amount: Optional[int]
     commits_amount: Optional[int]
     issues_graphic: Optional[IssueGraphicResponse]
-    top_ten_label_issues_graphic: Optional[List[LabelIssueResponse]]
     prs_graphic: Optional[PullRequestGraphicResponse]
+    top_ten_labels_graphic: Optional[List[LabelResponse]]
 
     @classmethod
     def from_repository_response(cls, owner: str, name: str, repo_response) -> "RepositoryResponse":
         repository_data = repo_response.get("data", None).get("repository", None)
+        labels_data = repository_data.get("labels", None).get("nodes", None)
+        sorted_labels_data = sorted(labels_data, key=lambda x: x["issues"]["totalCount"], reverse=True)
 
         return cls(
             owner=owner,
@@ -53,13 +55,13 @@ class RepositoryResponse(BaseModel):
                 open_issues=repository_data.get("openIssues", None).get("totalCount", None),
                 closed_issues=repository_data.get("closedIssues", None).get("totalCount", None)
             ),
-            top_ten_label_issues_graphic=[
-                LabelIssueResponse(name=label["name"], total=label["issues"]["totalCount"])
-                for label in repository_data.get("labels", None).get("nodes", None)
-            ],
             prs_graphic=PullRequestGraphicResponse(
                 open_pull_requests=repository_data.get("openPullRequests", None).get("totalCount", None),
                 closed_pull_requests=repository_data.get("closedPullRequests", None).get("totalCount", None),
                 merged_pull_requests=repository_data.get("mergedPullRequests", None).get("totalCount", None)
-            )
+            ),
+            top_ten_labels_graphic=[
+                LabelResponse(name=label["name"], total=label["issues"]["totalCount"])
+                for label in sorted_labels_data[:10]
+            ]
         )

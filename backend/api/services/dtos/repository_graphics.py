@@ -7,7 +7,7 @@ class IssueGraphicResponse(BaseModel):
     closed_issues: Optional[int]
 
 
-class LabelIssueResponse(BaseModel):
+class LabelResponse(BaseModel):
     name: Optional[str]
     total: Optional[int]
 
