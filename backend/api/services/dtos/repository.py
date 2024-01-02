@@ -13,6 +13,7 @@ class RepositoryResponse(BaseModel):
     stars_amount: Optional[int]
     readme_url: Optional[str]
     contribution_url: Optional[str]
+    contributors_amount: Optional[int]
     forks_amount: Optional[int]
     branches_amount: Optional[int]
     issues_amount: Optional[int]
@@ -33,13 +34,14 @@ class RepositoryResponse(BaseModel):
             website_url=repository_data.get("homepageUrl", None),
             topics=[topic["node"]["topic"]["name"] for topic in
                     repository_data.get("repositoryTopics", None).get("edges", [])],
-            stars_amount=repository_data.get("stargazers", None).get("totalCount"),
+            stars_amount=repository_data.get("stargazers", None).get("totalCount", None),
             readme_url=None,
             contribution_url=None,
-            forks_amount=repository_data.get("forks", None).get("totalCount"),
-            branches_amount=repository_data.get("refs", None).get("totalCount"),
-            issues_amount=repository_data.get("issues", None).get("totalCount"),
-            prs_amount=repository_data.get("pullRequests", None).get("totalCount"),
+            contributors_amount = repository_data.get("mentionableUsers", None).get("totalCount", None),
+            forks_amount=repository_data.get("forks", None).get("totalCount", None),
+            branches_amount=repository_data.get("refs", None).get("totalCount", None),
+            issues_amount=repository_data.get("issues", None).get("totalCount", None),
+            prs_amount=repository_data.get("pullRequests", None).get("totalCount", None),
             commits_amount=repository_data.get("defaultBranchRef", None).get("target", None).get("totalCommits",
                                                                                                  None).get("totalCount",
                                                                                                            None)

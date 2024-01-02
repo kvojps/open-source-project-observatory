@@ -48,6 +48,9 @@ class RepositoryClient:
             stargazers {{
               totalCount
             }}
+            mentionableUsers(first:1) {{
+              totalCount
+            }}
             forks {{
               totalCount
             }}
