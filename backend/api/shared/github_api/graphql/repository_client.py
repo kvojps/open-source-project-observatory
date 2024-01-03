@@ -1,5 +1,8 @@
-from fastapi import HTTPException, status
+from typing import Any
+
 import requests
+from fastapi import HTTPException, status
+
 from api.config.dynaconf import settings
 
 
@@ -8,7 +11,7 @@ class RepositoryClient:
         ...
 
     @staticmethod
-    def get_repository(owner: str, repo_name: str) -> requests.Response:
+    def get_repository(owner: str, repo_name: str) -> Any:
         url = 'https://api.github.com/graphql'
 
         headers = {
@@ -93,6 +96,7 @@ class RepositoryClient:
 
         response = requests.post(url, headers=headers, json={'query': query})
         if 200 >= response.status_code > 300:
-            raise HTTPException(status_code=status.HTTP_502_BAD_GATEWAY, detail="Github API unavailable")
+            raise HTTPException(
+                status_code=status.HTTP_502_BAD_GATEWAY, detail="Github API unavailable")
 
         return response.json()
