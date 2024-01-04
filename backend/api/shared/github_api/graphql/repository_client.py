@@ -1,6 +1,6 @@
 from typing import Any
 
-import requests
+import requests  # type: ignore
 from fastapi import HTTPException, status
 
 from api.config.dynaconf import settings
