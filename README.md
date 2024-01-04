@@ -31,5 +31,11 @@ The Open Source Project Observatory offers a number of benefits to the developer
 This project aims to provide a comprehensive view of ongoing open source projects, it also offers the possibility to explore specific characteristics of each project. In addition to facilitating the integration of new members into the open source community, offering clear guidance and encouraging active participation from the first steps.
 
 # Getting Started
-
+- [Code of conduct](https://github.com/kvojps/open-source-project-observatory/tree/main#)
+- [License](https://github.com/kvojps/open-source-project-observatory/tree/main?tab=GPL-3.0-1-ov-file#)
+- [Security policy](https://github.com/kvojps/open-source-project-observatory/tree/main?tab=GPL-3.0-1-ov-file#)
+- [How to contribute?](https://github.com/kvojps/open-source-project-observatory/blob/main/CONTRIBUTING.md)
+- [Other documentations](https://github.com/kvojps/open-source-project-observatory/wiki)
+- [Forum](https://github.com/kvojps/open-source-project-observatory/discussions)
+  
 # Where can I get help if I need it?
