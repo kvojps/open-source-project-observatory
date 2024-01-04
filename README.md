@@ -36,6 +36,7 @@ This project aims to provide a comprehensive view of ongoing open source project
 - [Security policy](https://github.com/kvojps/open-source-project-observatory/tree/main?tab=GPL-3.0-1-ov-file#)
 - [How to contribute?](https://github.com/kvojps/open-source-project-observatory/blob/main/CONTRIBUTING.md)
 - [Other documentations](https://github.com/kvojps/open-source-project-observatory/wiki)
-- [Forum](https://github.com/kvojps/open-source-project-observatory/discussions)
   
 # Where can I get help if I need it?
+- [Discussions](https://github.com/kvojps/open-source-project-observatory/discussions)
+- Email: <josebazjunior09@gmail.com>
