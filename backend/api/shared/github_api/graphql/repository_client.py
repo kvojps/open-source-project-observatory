@@ -1,7 +1,8 @@
-from typing import Any
+from typing import Any, Dict
 
 import requests  # type: ignore
 from fastapi import HTTPException, status
+from requests import Response
 
 from api.config.dynaconf import settings
 
@@ -11,15 +12,15 @@ class RepositoryClient:
         ...
 
     @staticmethod
-    def get_repository(owner: str, repo_name: str) -> Any:
-        url = 'https://api.github.com/graphql'
+    def get_repository(owner: str, repo_name: str) -> Dict[str, Any]:
+        url: str = 'https://api.github.com/graphql'
 
-        headers = {
+        headers: Dict[str, str] = {
             'Authorization': f'Bearer {settings.GITHUB_TOKEN}',
             'Content-Type': 'application/json',
         }
 
-        query = f'''
+        query: str = f'''
         query {{
           repository(owner: "{owner}", name: "{repo_name}") {{
             description
@@ -94,7 +95,8 @@ class RepositoryClient:
         }}
         '''
 
-        response = requests.post(url, headers=headers, json={'query': query})
+        response: Response = requests.post(
+            url, headers=headers, json={'query': query})
         if 200 >= response.status_code > 300:
             raise HTTPException(
                 status_code=status.HTTP_502_BAD_GATEWAY, detail="Github API unavailable")
